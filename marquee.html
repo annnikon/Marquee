@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<head><title>1</title>
+<style type="text/css">
+body{background: url("gangster.jpg")}
+#runtext {
+position:absolute;
+font-size:20pt;
+left: 10px;
+height: 20px;
+color: white;
+font-family: Courier;
+}
+#marquee {
+background-color: black;
+opacity: 0.7;
+width: document.body.ClientWidth px;
+border: 1px inset #000;
+overflow:hidden;
+height:40px;
+}
+</style>
+
+</head>
+<body onload="start()">
+<div id="marquee">
+<div id="runtext" onmouseover="stop()" > Увага! Розшук! </div>
+</div>
+
+<script type="text/javascript">
+window.setInterval(run,40);
+function run(){
+var w=parseInt(getComputedStyle(document.getElementById('runtext')).width);
+var l=parseInt(getComputedStyle(document.getElementById('runtext')).left);
+if(l<document.body.clientWidth-w)
+	document.getElementById('runtext').style.left = l+2+'px';
+else document.getElementById('runtext').style.left = 10+'px';	
+}
+
+</script>
+</body>
+
+</html>
